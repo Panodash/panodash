@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Signal — Panodash Brand System v1.0</title>
+  <style>
+    @font-face { font-family: JetBrains; src: url('../apps/extension/public/fonts/jetbrains-mono-var.ttf') format('truetype-variations'); font-weight: 100 800; }
+    @font-face { font-family: Archivo; src: url('../apps/extension/public/fonts/archivo-var.ttf') format('truetype-variations'); font-weight: 100 900; }
+    :root {
+      --i950:#060906; --i900:#0a0f0b; --i800:#0e1510; --i700:#142017; --i600:#1c2b1f; --i500:#2a4030;
+      --m400:#5f7a66; --m300:#8fa894; --m200:#c2d4c6; --m100:#eafbea;
+      --signal:#37ff8b; --signal-hover:#23d96f; --signal-pressed:#149e4e;
+      --alert:#ff5d5d; --amber:#ffc53d; --cyan:#4dd8e6; --violet:#a78bfa;
+    }
+    * { box-sizing:border-box; }
+    html { background:var(--i950); color:var(--m100); }
+    body { margin:0; font:15px/1.6 Archivo, sans-serif; }
+    .shell { width:min(1180px, calc(100% - 40px)); margin:auto; }
+    nav { display:flex; align-items:center; justify-content:space-between; padding:24px 0; border-bottom:1px solid var(--i600); }
+    .wordmark { display:flex; align-items:center; gap:12px; font:800 20px/1 JetBrains, monospace; letter-spacing:-.05em; }
+    .wordmark em { color:var(--signal); font-style:normal; }
+    .mark { width:42px; height:42px; border-radius:9px; background:var(--i800); display:grid; place-items:center; }
+    .mark svg { width:100%; }
+    .version, .eyebrow { color:var(--m400); font:500 10px/1.4 JetBrains, monospace; letter-spacing:.18em; text-transform:uppercase; }
+    .hero { min-height:620px; display:grid; grid-template-columns:1.2fr .8fr; align-items:center; gap:72px; padding:84px 0; }
+    h1,h2,h3 { font-family:JetBrains, monospace; }
+    h1 { margin:16px 0 24px; font-size:clamp(48px,8vw,104px); line-height:.94; letter-spacing:-.07em; }
+    h1 span { display:block; color:var(--signal); }
+    .lede { max-width:600px; color:var(--m200); font-size:20px; line-height:1.55; }
+    .hero-mark { aspect-ratio:1; border:1px solid var(--i600); border-radius:14px; background:var(--i800); display:grid; place-items:center; box-shadow:0 0 80px rgba(55,255,139,.08); }
+    .hero-mark svg { width:56%; filter:drop-shadow(0 0 24px rgba(55,255,139,.28)); }
+    section { padding:72px 0; border-top:1px solid var(--i600); }
+    .section-head { display:grid; grid-template-columns:1fr 2fr; gap:32px; margin-bottom:36px; }
+    h2 { margin:0; font-size:32px; letter-spacing:-.04em; }
+    .section-head p { max-width:680px; margin:0; color:var(--m300); }
+    .marks { display:grid; grid-template-columns:1.25fr .75fr; gap:16px; }
+    .panel { min-height:260px; padding:28px; border:1px solid var(--i600); border-radius:14px; background:var(--i800); }
+    .lockup { height:100%; display:flex; align-items:center; justify-content:center; font:800 clamp(28px,5vw,62px)/1 JetBrains, monospace; letter-spacing:-.06em; }
+    .lockup span { color:var(--signal); }
+    .panes { height:100%; display:grid; grid-template:1fr 1fr/1.25fr .75fr; gap:8px; }
+    .panes i { background:var(--i700); border-radius:6px; }
+    .panes i:nth-child(2) { background:var(--signal); }
+    .palette { display:grid; grid-template-columns:repeat(6,1fr); gap:8px; }
+    .swatch { min-height:140px; padding:14px; border-radius:10px; display:flex; flex-direction:column; justify-content:flex-end; color:var(--m100); font:500 11px/1.5 JetBrains, monospace; border:1px solid rgba(234,251,234,.08); }
+    .swatch small { opacity:.65; }
+    .signal-swatch { color:var(--i950); grid-column:span 2; }
+    .type-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+    .type-card { padding:32px; border:1px solid var(--i600); border-radius:14px; background:var(--i800); }
+    .mono { font-family:JetBrains, monospace; }
+    .type-sample { margin:24px 0; font-size:42px; line-height:1.1; letter-spacing:-.04em; }
+    .metric { color:var(--signal); font:700 52px/1 JetBrains, monospace; font-variant-numeric:tabular-nums; }
+    .rules { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+    .rule { padding:28px; border:1px solid var(--i600); border-radius:14px; background:var(--i800); }
+    .rule h3 { margin:0 0 16px; font-size:14px; letter-spacing:.1em; }
+    .rule ul { margin:0; padding-left:20px; color:var(--m300); }
+    .do h3 { color:var(--signal); } .dont h3 { color:var(--alert); }
+    footer { display:flex; justify-content:space-between; padding:40px 0 64px; color:var(--m400); font:500 10px/1.5 JetBrains, monospace; letter-spacing:.12em; text-transform:uppercase; }
+    @media(max-width:760px){ .hero,.section-head{grid-template-columns:1fr}.hero-mark{max-width:420px}.marks,.type-grid,.rules{grid-template-columns:1fr}.palette{grid-template-columns:repeat(2,1fr)}.signal-swatch{grid-column:span 1}.version{display:none} }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <nav>
+      <div class="wordmark"><span class="mark"><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="15" y="13" width="12" height="24" rx="1" fill="#37FF8B"/><rect x="31" y="31" width="6" height="6" rx="1" fill="#8FA894"/></svg></span><span>pano<em>dash_</em></span></div>
+      <div class="version">Signal · Brand system v1.0 · July 2026</div>
+    </nav>
+    <header class="hero">
+      <div><div class="eyebrow">The operating signal</div><h1>Signal in.<span>Noise out.</span></h1><p class="lede">A terminal-sharp identity for the private dashboard that turns scattered metrics into one calm field of view.</p></div>
+      <div class="hero-mark"><svg viewBox="0 0 64 64" aria-label="Panodash cursor mark"><rect x="20" y="18" width="14" height="28" rx="1.5" fill="#37FF8B"/><rect x="40" y="39" width="8" height="8" rx="1" fill="#8FA894"/></svg></div>
+    </header>
+
+    <section><div class="section-head"><h2>01 / Identity</h2><p>The Cursor is the primary mark: one active block and one quiet pixel. The Panes are secondary, expressing many inputs resolved into one active signal.</p></div><div class="marks"><div class="panel"><div class="lockup">pano<span>dash_</span></div></div><div class="panel"><div class="panes"><i></i><i></i><i></i><i></i></div></div></div></section>
+
+    <section><div class="section-head"><h2>02 / Color</h2><p>Use Ink for roughly 90% of a view, Mist for 9%, and Signal for the final 1%. Green should identify exactly one thing.</p></div><div class="palette">
+      <div class="swatch" style="background:#060906">Ink 950<small>#060906</small></div><div class="swatch" style="background:#0e1510">Ink 800<small>#0E1510</small></div><div class="swatch" style="background:#142017">Ink 700<small>#142017</small></div><div class="swatch" style="background:#2a4030">Ink 500<small>#2A4030</small></div><div class="swatch" style="background:#5f7a66">Mist 400<small>#5F7A66</small></div><div class="swatch" style="background:#eafbea;color:#060906">Mist 100<small>#EAFBEA</small></div>
+      <div class="swatch signal-swatch" style="background:#37ff8b">Signal 500<small>#37FF8B</small></div><div class="swatch" style="background:#ff5d5d;color:#060906">Alert<small>#FF5D5D</small></div><div class="swatch" style="background:#ffc53d;color:#060906">Amber<small>#FFC53D</small></div><div class="swatch" style="background:#4dd8e6;color:#060906">Cyan<small>#4DD8E6</small></div><div class="swatch" style="background:#a78bfa;color:#060906">Violet<small>#A78BFA</small></div>
+    </div></section>
+
+    <section><div class="section-head"><h2>03 / Type</h2><p>JetBrains Mono carries the brand, metrics, labels, and code. Archivo makes explanatory copy feel human and readable.</p></div><div class="type-grid"><div class="type-card mono"><div class="eyebrow">JetBrains Mono · 800</div><div class="type-sample">Signal<br/>acquired_</div><div class="metric">82.4%</div></div><div class="type-card"><div class="eyebrow">Archivo · 400</div><div class="type-sample">See the shape of your day.</div><p style="color:var(--m300)">Clear, compact explanations support the data without competing with it.</p></div></div></section>
+
+    <section><div class="section-head"><h2>04 / Discipline</h2><p>The system works through restraint. The interface is an instrument, not a light show.</p></div><div class="rules"><div class="rule do"><h3>DO</h3><ul><li>Give green one job per view.</li><li>Use monospaced, tabular metrics.</li><li>Keep surfaces dark and green-tinted.</li><li>Use stepped motion for brand moments.</li></ul></div><div class="rule dont"><h3>DON'T</h3><ul><li>Use green for body copy or wallpaper.</li><li>Use pure black, pure white, or green gradients.</li><li>Turn every control into a pill.</li><li>Animate the mark in print or routine chrome.</li></ul></div></div></section>
+
+    <footer><span>Panodash · Your whole signal, locally.</span><span>Signal v1.0</span></footer>
+  </main>
+</body>
+</html>

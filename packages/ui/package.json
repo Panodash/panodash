@@ -1,0 +1,17 @@
+{
+  "name": "@panodash/ui",
+  "private": true,
+  "version": "0.7.1",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./*": "./src/*"
+  },
+  "dependencies": {
+    "@panodash/core": "*",
+    "@panodash/widget-sdk": "*"
+  },
+  "peerDependencies": {
+    "react": "^18.3.1"
+  }
+}

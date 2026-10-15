@@ -1,0 +1,8 @@
+# Default review for repository-wide changes.
+* @ewess
+
+# Security- and release-sensitive areas.
+/apps/bridge/ @ewess
+/.github/workflows/ @ewess
+/SECURITY.md @ewess
+/store/privacy-disclosures.md @ewess

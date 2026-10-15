@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Panodash asset export</title>
+    <style>
+      /* Assets are injected INLINE (not <img>) so these page-level fonts
+         reach the SVG text — SVGs-as-images can't load external fonts. */
+      @font-face {
+        font-family: 'JetBrains Mono';
+        src: url('../apps/extension/public/fonts/jetbrains-mono-var.ttf') format('truetype-variations');
+        font-weight: 100 800;
+      }
+      @font-face {
+        font-family: 'Archivo';
+        src: url('../apps/extension/public/fonts/archivo-var.ttf') format('truetype-variations');
+        font-weight: 100 900;
+      }
+      html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; }
+      #asset, #asset svg { display: block; width: 100%; height: 100%; }
+    </style>
+  </head>
+  <body>
+    <div id="asset"></div>
+    <script>
+      const name = new URLSearchParams(location.search).get('asset');
+      const allowed = new Set(['chrome-store-small-promo', 'chrome-store-marquee', 'launch-social-card']);
+      const file = `assets/${allowed.has(name) ? name : 'launch-social-card'}.svg`;
+      fetch(file)
+        .then((r) => r.text())
+        .then(async (svg) => {
+          document.querySelector('#asset').innerHTML = svg;
+          await document.fonts.ready;
+          document.title = 'ready';
+        });
+    </script>
+  </body>
+</html>

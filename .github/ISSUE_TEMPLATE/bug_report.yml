@@ -1,0 +1,44 @@
+name: Bug report
+description: Report a reproducible problem in Panodash
+title: "[Bug]: "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: Do not include access tokens, credentials, or personal metric exports. Report security issues privately according to SECURITY.md.
+  - type: input
+    id: version
+    attributes:
+      label: Panodash version
+      placeholder: 0.7.1
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Extension dashboard
+        - Built-in provider
+        - OAuth bridge
+        - Widget SDK
+        - Documentation or release tooling
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: What happened?
+      description: Include expected behavior and the smallest useful reproduction.
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      placeholder: Chrome version, operating system, provider, and bridge deployment if relevant
+  - type: textarea
+    id: logs
+    attributes:
+      label: Sanitized logs or screenshots
+      description: Remove personal data and secrets before attaching anything.

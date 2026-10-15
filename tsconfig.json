@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "baseUrl": ".",
+    "paths": {
+      "@panodash/bridge-core": ["packages/bridge-core/src/index.ts"],
+      "@panodash/bridge-core/*": ["packages/bridge-core/src/*"],
+      "@panodash/core": ["packages/core/src/index.ts"],
+      "@panodash/core/*": ["packages/core/src/*"],
+      "@panodash/widget-sdk": ["packages/widget-sdk/src/index.ts"],
+      "@panodash/widget-sdk/*": ["packages/widget-sdk/src/*"],
+      "@panodash/providers": ["packages/providers/src/index.ts"],
+      "@panodash/providers/*": ["packages/providers/src/*"],
+      "@panodash/ui": ["packages/ui/src/index.ts"],
+      "@panodash/ui/*": ["packages/ui/src/*"]
+    },
+    "jsx": "react-jsx",
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "isolatedModules": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "allowImportingTsExtensions": true,
+    "types": ["chrome", "vite/client", "node"],
+    "noEmit": true
+  },
+  "include": ["apps", "packages", "tests", "scripts", "vitest.config.ts"]
+}

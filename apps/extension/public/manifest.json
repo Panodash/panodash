@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "Panodash — personal metrics dashboard",
+  "version": "0.7.1",
+  "description": "A local-first, extensible dashboard of the metrics you care about, on every new tab. Your data never leaves your machine.",
+  "chrome_url_overrides": {
+    "newtab": "index.html"
+  },
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "permissions": ["storage", "alarms", "identity"],
+  "host_permissions": [
+    "https://api.open-meteo.com/*",
+    "https://geocoding-api.open-meteo.com/*"
+  ],
+  "optional_host_permissions": ["https://*/*", "http://*/*"],
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}

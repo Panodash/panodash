@@ -1,0 +1,62 @@
+name: Publish Chrome
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment: chrome-web-store
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm test
+      - run: npm run build
+      - name: Package extension
+        run: |
+          cd apps/extension/dist
+          zip -r ../../../panodash-extension.zip .
+      - name: Exchange Chrome Web Store refresh token
+        id: oauth
+        env:
+          CLIENT_ID: ${{ secrets.CHROME_CLIENT_ID }}
+          CLIENT_SECRET: ${{ secrets.CHROME_CLIENT_SECRET }}
+          REFRESH_TOKEN: ${{ secrets.CHROME_REFRESH_TOKEN }}
+        run: |
+          response=$(curl --fail-with-body --silent --show-error \
+            -X POST https://oauth2.googleapis.com/token \
+            -d client_id="$CLIENT_ID" \
+            -d client_secret="$CLIENT_SECRET" \
+            -d refresh_token="$REFRESH_TOKEN" \
+            -d grant_type=refresh_token)
+          echo "access_token=$(jq -r .access_token <<<\"$response\")" >> "$GITHUB_OUTPUT"
+      - name: Upload extension
+        env:
+          ACCESS_TOKEN: ${{ steps.oauth.outputs.access_token }}
+          EXTENSION_ID: ${{ secrets.CHROME_EXTENSION_ID }}
+        run: |
+          curl --fail-with-body --silent --show-error \
+            -X PUT \
+            -H "Authorization: Bearer $ACCESS_TOKEN" \
+            -H "x-goog-api-version: 2" \
+            -T panodash-extension.zip \
+            "https://www.googleapis.com/upload/chromewebstore/v1.1/items/$EXTENSION_ID"
+      - name: Publish extension
+        env:
+          ACCESS_TOKEN: ${{ steps.oauth.outputs.access_token }}
+          EXTENSION_ID: ${{ secrets.CHROME_EXTENSION_ID }}
+        run: |
+          curl --fail-with-body --silent --show-error \
+            -X POST \
+            -H "Authorization: Bearer $ACCESS_TOKEN" \
+            -H "x-goog-api-version: 2" \
+            -H "Content-Length: 0" \
+            "https://www.googleapis.com/chromewebstore/v1.1/items/$EXTENSION_ID/publish"

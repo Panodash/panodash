@@ -1,0 +1,19 @@
+{
+  "name": "@panodash/extension",
+  "private": true,
+  "version": "0.7.1",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --config vite.config.ts",
+    "build": "vite build --config vite.config.ts && node ../../scripts/make-icons.mjs dist/icons",
+    "icons": "node ../../scripts/make-icons.mjs public/icons"
+  },
+  "dependencies": {
+    "@panodash/core": "*",
+    "@panodash/providers": "*",
+    "@panodash/ui": "*",
+    "@panodash/widget-sdk": "*",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  }
+}

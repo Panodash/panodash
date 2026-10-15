@@ -1,0 +1,13 @@
+{
+  "name": "@panodash/core",
+  "private": true,
+  "version": "0.7.1",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./*": "./src/*"
+  },
+  "dependencies": {
+    "@panodash/widget-sdk": "*"
+  }
+}

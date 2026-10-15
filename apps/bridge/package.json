@@ -1,0 +1,12 @@
+{
+  "name": "@panodash/bridge",
+  "private": true,
+  "version": "0.7.1",
+  "type": "module",
+  "dependencies": {
+    "@panodash/bridge-core": "*"
+  },
+  "scripts": {
+    "start": "node --experimental-strip-types src/server.ts"
+  }
+}

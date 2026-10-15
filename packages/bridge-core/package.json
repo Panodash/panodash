@@ -1,0 +1,52 @@
+{
+  "name": "@panodash/bridge-core",
+  "version": "0.7.1",
+  "description": "Provider-neutral OAuth bridge protocol and adapters for Panodash-compatible bridges.",
+  "type": "module",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/panodash/panodash.git",
+    "directory": "packages/bridge-core"
+  },
+  "homepage": "https://github.com/panodash/panodash/tree/main/packages/bridge-core#readme",
+  "bugs": {
+    "url": "https://github.com/panodash/panodash/issues"
+  },
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.md"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./providers": {
+      "types": "./dist/providers.d.ts",
+      "import": "./dist/providers.js"
+    },
+    "./server": {
+      "types": "./dist/server.d.ts",
+      "import": "./dist/server.js"
+    },
+    "./store": {
+      "types": "./dist/store.d.ts",
+      "import": "./dist/store.js"
+    }
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "sideEffects": false,
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "prepack": "npm run build"
+  }
+}

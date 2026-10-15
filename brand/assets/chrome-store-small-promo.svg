@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="440" height="280" viewBox="0 0 440 280" role="img" aria-labelledby="title">
+  <title id="title">Panodash — signal in, noise out</title>
+  <rect width="440" height="280" fill="#060906"/>
+  <path d="M0 56h440M0 112h440M0 168h440M0 224h440M55 0v280M110 0v280M165 0v280M220 0v280M275 0v280M330 0v280M385 0v280" stroke="#1C2B1F" opacity=".55"/>
+  <g transform="translate(30 28)"><rect width="52" height="52" rx="11" fill="#0E1510" stroke="#1C2B1F"/><rect x="16" y="14" width="13" height="26" rx="1" fill="#37FF8B"/><rect x="34" y="34" width="7" height="7" rx="1" fill="#8FA894"/></g>
+  <text x="96" y="62" fill="#EAFBEA" font-family="JetBrains Mono,Consolas,monospace" font-size="24" font-weight="800" letter-spacing="-1">pano<tspan fill="#37FF8B">dash_</tspan></text>
+  <text x="30" y="136" fill="#EAFBEA" font-family="JetBrains Mono,Consolas,monospace" font-size="36" font-weight="800" letter-spacing="-2">SIGNAL IN.</text>
+  <text x="30" y="177" fill="#37FF8B" font-family="JetBrains Mono,Consolas,monospace" font-size="36" font-weight="800" letter-spacing="-2">NOISE OUT.</text>
+  <text x="32" y="217" fill="#8FA894" font-family="Archivo,Segoe UI,sans-serif" font-size="14">One private new tab.</text>
+  <g transform="translate(302 92)"><rect width="108" height="146" rx="10" fill="#0E1510" stroke="#1C2B1F"/><text x="14" y="29" fill="#5F7A66" font-family="JetBrains Mono,Consolas,monospace" font-size="9" letter-spacing="1.4">RECOVERY</text><text x="14" y="78" fill="#EAFBEA" font-family="JetBrains Mono,Consolas,monospace" font-size="34" font-weight="700">82%</text><text x="14" y="103" fill="#37FF8B" font-family="JetBrains Mono,Consolas,monospace" font-size="9" font-weight="700">+6 TODAY</text><path d="M14 128C34 123 45 137 61 117s27 6 34-10" fill="none" stroke="#37FF8B" stroke-width="2"/></g>
+</svg>

@@ -1,0 +1,13 @@
+{
+  "name": "@panodash/widget-sdk",
+  "private": true,
+  "version": "0.7.1",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./registry": "./src/registry.ts"
+  },
+  "peerDependencies": {
+    "react": "^18.3.1"
+  }
+}

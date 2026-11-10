@@ -6,12 +6,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/panodash/panodash.git",
+    "url": "git+https://github.com/Panodash/panodash.git",
     "directory": "packages/bridge-core"
   },
-  "homepage": "https://github.com/panodash/panodash/tree/main/packages/bridge-core#readme",
+  "homepage": "https://github.com/Panodash/panodash/tree/main/packages/bridge-core#readme",
   "bugs": {
-    "url": "https://github.com/panodash/panodash/issues"
+    "url": "https://github.com/Panodash/panodash/issues"
   },
   "files": [
     "dist",

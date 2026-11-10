@@ -24,7 +24,7 @@ import { Menu } from '@panodash/ui/Menu';
 import { BrandMark } from '@panodash/ui/BrandMark';
 import { ColorDialog } from '@panodash/ui/ColorDialog';
 
-const REPO_URL = 'https://github.com/panodash/panodash';
+const REPO_URL = 'https://github.com/Panodash/panodash';
 
 type DialogState = { mode: 'add' } | { mode: 'edit'; id: string } | null;
 

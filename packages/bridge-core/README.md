@@ -61,9 +61,9 @@ accounts, entitlements, or another external policy service without blocking
 the bridge runtime.
 
 The complete file-backed reference application is available in
-[`apps/bridge`](https://github.com/panodash/panodash/tree/main/apps/bridge).
+[`apps/bridge`](https://github.com/Panodash/panodash/tree/main/apps/bridge).
 The protocol is documented in
-[`docs/bridge-protocol.md`](https://github.com/panodash/panodash/blob/main/docs/bridge-protocol.md).
+[`docs/bridge-protocol.md`](https://github.com/Panodash/panodash/blob/main/docs/bridge-protocol.md).
 
 ## License
 
